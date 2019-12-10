@@ -20,6 +20,15 @@ setuptools.setup(
 
     install_requires=[
         "aws-cdk.core",
+        "aws-cdk.aws-dynamodb",
+        "aws-cdk.aws-lambda",
+        "aws-cdk.aws-ec2",
+        "aws-cdk.aws-ecs-patterns",
+        "aws-cdk.aws-apigateway",
+        "aws-cdk.aws-cloudwatch",
+        "aws-cdk.aws-iam",
+        "cdk-watchful",
+        "boto3"
     ],
 
     python_requires=">=3.6",
