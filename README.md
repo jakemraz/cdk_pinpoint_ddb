@@ -74,7 +74,7 @@ $ cdk deploy
 # Sample payload
 ```json
 {
-  "segment": "first", // Put your segment name
+  "segment": "<PUT YOUR SEGMENT NAME>",
   "title": "Hello",
   "message": "Echo Buds!",
   "category": "IT",
