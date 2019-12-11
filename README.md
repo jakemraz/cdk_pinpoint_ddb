@@ -63,7 +63,6 @@ Deploy this stack to your default AWS account/region
 $ cdk deploy
 ```
 
-
 # Useful commands
 
  * `cdk ls`          list all stacks in the app
@@ -71,5 +70,17 @@ $ cdk deploy
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
+
+# Sample payload
+```json
+{
+  "segment": "first", // Put your segment name
+  "title": "Hello",
+  "message": "Echo Buds!",
+  "category": "IT",
+  "icon": "https://apprecs.org/ios/images/app-icons/256/6d/580990573.jpg",
+  "image": "https://pplware.sapo.pt/wp-content/uploads/2019/09/Amazon_Echo_Buds_02.jpg"
+}
+```
 
 Enjoy!
