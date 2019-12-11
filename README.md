@@ -1,6 +1,17 @@
 
-# Welcome to your CDK Python project!
+# Welcome to cdk_pinpoint_ddb project!
 
+## Edit your configuration
+Edit **lambda_fn/config.py** file.
+```python
+# config.py
+
+PINPOINT_CONFIG = {
+    'application_id': '<PUT_PINPOINT_APPLICATION_ID_HERE>'
+}
+```
+
+## How to build and deploy
 This is a blank project for Python development with CDK.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
@@ -46,6 +57,12 @@ $ cdk synth
 To add additional dependencies, for example other CDK libraries, just add
 them to your `setup.py` file and rerun the `pip install -r requirements.txt`
 command.
+
+Deploy this stack to your default AWS account/region
+```
+$ cdk deploy
+```
+
 
 # Useful commands
 
