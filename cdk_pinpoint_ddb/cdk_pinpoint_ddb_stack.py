@@ -11,22 +11,24 @@ class CdkPinpointDdbStack(core.Stack):
             partition_key = aws_dynamodb.Attribute(name="category",type=aws_dynamodb.AttributeType.STRING),
             sort_key = aws_dynamodb.Attribute(name="event_time",type=aws_dynamodb.AttributeType.NUMBER)
             )
-
         
         # LAMBDA
         function = aws_lambda.Function(self, "pinpoint_send_campaign",
             runtime=aws_lambda.Runtime.PYTHON_3_7,
             handler="pinpoint_campaign_handler.lambda_handler",
-            code=aws_lambda.Code.asset("./lambda_fn"))
+            code=aws_lambda.Code.asset("./lambda_fn"),
+            environment={
+                'CATEGORY_TABLE_NAME': table.table_name
+            })
         table.grant_read_write_data(function)
         lambdaPinpointSendCampaignRole = function.role
         pinpoint_project_arn = "arn:aws:mobiletargeting:us-west-2:" + self.account + ":apps/" + config.PINPOINT_CONFIG['application_id']
         pinpointSendCampaignPolicyStatement = aws_iam.PolicyStatement(
-            actions= [
+            actions=[
                 "mobiletargeting:CreateCampaign",
                 "mobiletargeting:GetSegments"
             ],
-            resources= [
+            resources=[
                 pinpoint_project_arn
             ],
             effect=aws_iam.Effect.ALLOW
