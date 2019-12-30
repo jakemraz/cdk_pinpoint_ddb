@@ -22,11 +22,12 @@ class CdkPinpointDdbStack(core.Stack):
             })
         table.grant_read_write_data(function)
         lambdaPinpointSendCampaignRole = function.role
-        pinpoint_project_arn = "arn:aws:mobiletargeting:us-west-2:" + self.account + ":apps/" + config.PINPOINT_CONFIG['application_id']
+        pinpoint_project_arn = "arn:aws:mobiletargeting:" + self.region + ":" + self.account + ":apps/" + config.PINPOINT_CONFIG['application_id']
         pinpointSendCampaignPolicyStatement = aws_iam.PolicyStatement(
             actions=[
                 "mobiletargeting:CreateCampaign",
-                "mobiletargeting:GetSegments"
+                "mobiletargeting:GetSegments",
+                "mobiletargeting:GetSegment"
             ],
             resources=[
                 pinpoint_project_arn
